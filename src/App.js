@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Board } from './components/Board.js'
+import { ResetButton } from './components/ResetButton';
 import { ScoreBoard } from './components/ScoreBoard';
 //=================================================
 //=================================================
@@ -22,7 +23,7 @@ function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xPlaying, setXPlaying] = useState(true);
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 })
-
+  const [gameOver, setGameOver] = useState(false);
   //=============================================================
   //===================== FUNCTIONS =============================
   // x & o function
@@ -59,10 +60,16 @@ function App() {
     for (let i = 0; i < win_conditions.length; i++) {
       const [x, y, z] = win_conditions[i];
       if (board[x] && board[x] === board[y] && board[y] === board[z]) {
-        console.log(board[x])
+        setGameOver(true)
         return board[x];
       }
     }
+  }
+
+  // function
+  const resetBoard = () => {
+    setGameOver(false);
+    setBoard(Array(9).fill(null))
   }
 
   //=================================================
@@ -70,7 +77,8 @@ function App() {
   return (
     <div className="App">
       <ScoreBoard scores={scores} xPlaying={xPlaying} />
-      <Board board={board} onClick={handleBoxClick} />
+      <Board board={board} onClick={gameOver ? resetBoard : handleBoxClick} />
+      <ResetButton resetBoard={resetBoard} />
     </div>
   );
 }

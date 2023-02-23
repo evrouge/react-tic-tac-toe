@@ -20,8 +20,16 @@
 
 .x-score {
     color: magenta;
+    border-radius: 0.5rem 0 0 0.5rem;
+    border-bottom: 5px solid magenta;
 }
 
 .o-score {
     color: darkgreen;
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-bottom: 5px solid darkgreen;
+}
+
+.inactive {
+    border-bottom: 5px solid transparent;
 }
