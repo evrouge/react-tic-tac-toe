@@ -3,8 +3,8 @@ import './ResetButton.css'
 
 export const ResetButton = ({ resetBoard }) => {
     return (
-        <div>
-            <button className='reset-btn' onClick={resetBoard}>Reset</button>
+        <div className='reset'>
+            <button className='button' onClick={resetBoard}>Reset</button>
         </div>
     )
 }

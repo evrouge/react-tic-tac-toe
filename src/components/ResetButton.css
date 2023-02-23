@@ -1,0 +1,14 @@
+.button {
+    border: none;
+    border-radius: 0.5rem;
+    background-color: lightblue;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    margin: 2rem auto;
+    margin: block;
+    align-items: center;
+}
+
+.reset {
+    text-align: center;
+}
