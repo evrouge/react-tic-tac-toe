@@ -1,1 +1,1 @@
-# creating react app tic-tac-toe
+# React tic-tac-toe
