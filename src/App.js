@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { Board } from './components/Board.js'
+import { ScoreBoard } from './components/ScoreBoard';
 //=================================================
 //=================================================
 function App() {
@@ -21,7 +22,7 @@ function App() {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xPlaying, setXPlaying] = useState(true);
   const [scores, setScores] = useState({ xScore: 0, oScore: 0 })
-  // const board = ['X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X']
+
   //=============================================================
   //===================== FUNCTIONS =============================
   // x & o function
@@ -49,9 +50,6 @@ function App() {
       }
     }
 
-    console.log(scores)
-
-
     setBoard(updatedBoard);
     setXPlaying(!xPlaying);
   }
@@ -71,9 +69,9 @@ function App() {
   //=================================================
   return (
     <div className="App">
+      <ScoreBoard scores={scores} xPlaying={xPlaying} />
       <Board board={board} onClick={handleBoxClick} />
     </div>
-
   );
 }
 
